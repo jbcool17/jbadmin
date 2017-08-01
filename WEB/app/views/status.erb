@@ -1,0 +1,49 @@
+
+  <div>
+    <h2>JbAdmin :: Status</h2>
+
+    <div>
+      <p>Showing ping status for machines.</p>
+    </div>
+    <h3>Outside Network</h3>
+    <ul>
+      <% @outside.each do |m| %>
+      <li>
+        <%= m[0] %> :
+        <% if Net::Ping::External.new(m[1]).ping? %>
+          <strong style="color: green;">HOST IS UP!</strong>
+        <% else %>
+          <strong style="color: red;">HOST IS DOWN!</strong>
+        <% end %>
+      </li>
+      <% end %>
+    </ul>
+
+    <h3>Servers</h3>
+    <ul>
+      <% @servers.each do |m| %>
+      <li>
+        <%= m[0] %> :
+        <% if Net::Ping::External.new(m[1]).ping? %>
+          <strong style="color: green;">HOST IS UP!</strong>
+        <% else %>
+          <strong style="color: red;">HOST IS DOWN!</strong>
+        <% end %>
+      </li>
+      <% end %>
+    </ul>
+    <h3>Printers</h3>
+    <ul>
+      <% @printers.each do |m| %>
+      <li>
+        <%= m[0] %> :
+        <% if Net::Ping::External.new(m[1]).ping? %>
+          <strong style="color: green;">HOST IS UP!</strong>
+        <% else %>
+          <strong style="color: red;">HOST IS DOWN!</strong>
+        <% end %>
+      </li>
+      <% end %>
+    </ul>
+
+  </div>

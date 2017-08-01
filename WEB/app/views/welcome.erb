@@ -1,0 +1,19 @@
+
+  <div>
+    <h2>JbAdmin</h2>
+
+    <div>
+      <p>Welcome to the JbAdmin beta release.</p>
+    </div>
+
+    <div>
+      <h3>Environment</h3>
+      <ul>
+        <li><b>Ruby:</b> <%= RUBY_VERSION %></li>
+        <li><b>Environment:</b> <%= ENV["RACK_ENV"] %></li>
+        <li><b>Server:</b> <%= @env["SERVER_SOFTWARE"] %></li>
+        <li><b>Port:</b> <%= @env["SERVER_PORT"] %></li>
+      </ul>
+    </div>
+
+  </div>

@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+
+require "jbadmin"
+Jbadmin::CLI.start(ARGV)

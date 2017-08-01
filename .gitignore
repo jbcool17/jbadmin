@@ -1,0 +1,17 @@
+.bundle/
+.yardoc
+Gemfile.lock
+_yardoc
+coverage
+doc
+pkg
+spec/reports
+/tmp
+*.mov
+*.db
+.DS_Store
+client_secret.json
+.env
+*.csv
+tmp/
+log/
