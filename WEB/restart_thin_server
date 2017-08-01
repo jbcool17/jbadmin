@@ -1,0 +1,2 @@
+#kill $(ps aux | grep thin | cut -d " " -f2-3)
+ bundle exec thin start -s3 -a 127.0.0.1
