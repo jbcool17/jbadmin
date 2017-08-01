@@ -1,4 +1,4 @@
-# Jbadmin
+# JBADMIN - CLI
 - CLI Admin Utility
 
 Simple CLI Admin Utility for keeping track of and pinging servers.
