@@ -18,18 +18,7 @@ module JbAdmin
       service.client_options.application_name = @APPLICATION_NAME
       service.authorization = authorize
 
-      # Prints the names and majors of students in a sample spreadsheet:
-      # https://docs.google.com/spreadsheets/d/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms/edit
-
-      # service.get_spreadsheet_values('1aBxwU5oKJlN1NWVyLTqdARPU687Svq97taEhmOIkdM8', "A2:G")
       response = service.get_spreadsheet_values(@sheet_id, @range)
-      # puts 'ID, Description:'
-      # puts 'No data found.' if response.values.empty?
-      # response.values.each do |row|
-      #   # Print columns A and E, which correspond to indices 0 and 4.
-      #   puts "#{row[0]}, #{row[1]}"
-      # end
-
       return response.values
     end
 
