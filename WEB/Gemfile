@@ -11,6 +11,7 @@ gem 'shotgun'
 gem 'pry'
 gem 'bcrypt'
 gem "tux"
+gem 'openssl'
 gem 'google-api-client'
 gem 'dotenv'
 gem 'net-ping'
