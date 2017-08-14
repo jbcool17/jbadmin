@@ -61,5 +61,30 @@ module Jbadmin
       end
       puts ''
     end
+
+    desc "local_update", "update local machine"
+    def local_update
+
+      # Update Script for macOS
+      # Description:
+      # checks for any updates, using homebrew, AppStore, and Apple Software Updates
+      # Requirements:
+      # homebrew - https://brew.sh/
+      # mas-cli - https://github.com/mas-cli/mas
+
+      puts "===> Checking for updates..."
+      puts "===> Running homebrew..."
+      `brew update`
+
+      puts "===> Outdated homebrew packages"
+      `brew outdated`
+
+      puts "===> Running MAS..."
+      `mas outdated`
+
+      puts "===> Running Apple Software Update"
+      `softwareupdate -l`
+
+    end
   end
 end

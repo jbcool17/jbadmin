@@ -15,6 +15,7 @@ module Jbadmin
             File.chmod(0700,Jbadmin.hosts)
             puts "File created..."
           end
+            
         end
 
         def get_computer(host)
