@@ -74,16 +74,16 @@ module Jbadmin
 
       puts "===> Checking for updates..."
       puts "===> Running homebrew..."
-      `brew update`
+      system "brew update"
 
       puts "===> Outdated homebrew packages"
-      `brew outdated`
+      system "brew outdated"
 
       puts "===> Running MAS..."
-      `mas outdated`
+      system "mas outdated"
 
       puts "===> Running Apple Software Update"
-      `softwareupdate -l`
+      system "softwareupdate -l"
 
     end
   end
