@@ -10,8 +10,16 @@ spec/reports
 *.mov
 *.db
 .DS_Store
-client_secret.json
+/WEB/client_secret.json
 .env
+*.csv
+*.json
+tmp/
+log/
+.env
+sheets.rb
+ruby_drive.rb
+.DS_Store
 *.csv
 tmp/
 log/

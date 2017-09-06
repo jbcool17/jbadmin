@@ -12,6 +12,10 @@ class ApplicationController < Sinatra::Base
     set :views, 'app/views'
   end
 
+  get "/" do
+    erb :test
+  end
+
   get "/jbadmin" do
     erb :welcome
   end
@@ -26,5 +30,23 @@ class ApplicationController < Sinatra::Base
     @printers = machines.select { |s| s[2] == 'printer' }
 
     erb :status
+  end
+
+  get "/jbadmin/emails" do
+    erb :emails
+  end
+
+  post "/jbadmin/emails" do
+    if params[:pdf] && params[:pdf][:filename]
+      filename = params[:pdf][:filename]
+      file = params[:pdf][:tempfile]
+      path = "./public/uploads/#{filename}"
+
+      File.open(path, 'wb') do |f|
+        f.write(file.read)
+      end
+
+      # redirect
+    end
   end
 end
