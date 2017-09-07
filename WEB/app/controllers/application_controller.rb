@@ -16,6 +16,7 @@ class ApplicationController < Sinatra::Base
     erb :test
   end
 
+
   get "/jbadmin" do
     erb :welcome
   end
@@ -32,21 +33,11 @@ class ApplicationController < Sinatra::Base
     erb :status
   end
 
-  get "/jbadmin/emails" do
-    erb :emails
+  get "/jbadmin/test/:name" do
+    @test = params[:name]
+
+    erb :test1
   end
 
-  post "/jbadmin/emails" do
-    if params[:pdf] && params[:pdf][:filename]
-      filename = params[:pdf][:filename]
-      file = params[:pdf][:tempfile]
-      path = "./public/uploads/#{filename}"
 
-      File.open(path, 'wb') do |f|
-        f.write(file.read)
-      end
-
-      # redirect
-    end
-  end
 end
