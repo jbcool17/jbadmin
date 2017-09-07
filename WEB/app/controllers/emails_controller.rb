@@ -7,7 +7,8 @@ class EmailsController < ApplicationController
 
   # Post and Process
   post "/jbadmin/emails" do
-    if params[:pdf] && params[:pdf][:filename]
+    if params[:pdf] && params[:pdf][:filename] && File.extname(params[:pdf][:filename]) == '.pdf'
+
       filename = "#{Time.now.strftime("%Y%m%d%H%M%S")}-#{params[:pdf][:filename]}"
       file = params[:pdf][:tempfile]
       path = "./public/uploads/#{filename}"
@@ -17,21 +18,15 @@ class EmailsController < ApplicationController
       end
 
       # Run Process Script
-      system("./script #{path}")
+      system("./scripts/parse-emails-from-pdf #{path}")
 
+      # Output Link to File
       f_noext = File.basename(path, '.pdf')
-      
-      redirect "/jbadmin/emails/EMAILS-#{f_noext}.txt"
+      "<a href=\"/jbadmin/downloads/EMAILS-#{f_noext}.txt\">EMAILS-#{f_noext}.txt"
+    else
+      "An Error Occured."
     end
 
-  end
-
-  # Download Link
-  get "/jbadmin/emails/:output" do
-    @file = params[:output]
-    @file_link = "/jbadmin/downloads/#{@file}"
-
-    erb :"/emails/emails_output"
   end
 
   # Download Action
