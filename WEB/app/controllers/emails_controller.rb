@@ -18,8 +18,9 @@ class EmailsController < ApplicationController
 
       # Run Process Script
       system("./script #{path}")
-      # FileUtils.cp(path, "./public/uploads/OUT-#{filename}")
+
       f_noext = File.basename(path, '.pdf')
+      
       redirect "/jbadmin/emails/EMAILS-#{f_noext}.txt"
     end
 
@@ -28,13 +29,13 @@ class EmailsController < ApplicationController
   # Download Link
   get "/jbadmin/emails/:output" do
     @file = params[:output]
-    @file_link = "/jbadmin/download/#{@file}"
+    @file_link = "/jbadmin/downloads/#{@file}"
 
     erb :"/emails/emails_output"
   end
 
   # Download Action
-  get "/jbadmin/download/:filename" do |filename|
+  get "/jbadmin/downloads/:filename" do |filename|
     send_file "./public/downloads/#{params[:filename]}", :filename => filename, :type => 'Application/oclet-stream'
   end
 end
