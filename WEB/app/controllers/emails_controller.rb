@@ -27,13 +27,13 @@ class EmailsController < ApplicationController
   # Download Link
   get "/jbadmin/emails/:output" do
     @file = params[:output]
-    @file_link = "/download/#{@file}"
+    @file_link = "/jbadmin/download/#{@file}"
 
     erb :"/emails/emails_output"
   end
 
   # Download Action
-  get "/download/:filename" do |filename|
+  get "/jbadmin/download/:filename" do |filename|
     send_file "./public/uploads/#{params[:filename]}", :filename => filename, :type => 'Application/oclet-stream'
   end
 end
