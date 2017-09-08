@@ -1,8 +1,0 @@
-client_secret.json
-.env
-sheets.rb
-ruby_drive.rb
-.DS_Store
-*.csv
-tmp/
-log/
