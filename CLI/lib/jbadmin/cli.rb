@@ -4,7 +4,7 @@ module Jbadmin
     def version
       puts "Name: #{Jbadmin.name}"
       puts "Version: #{VERSION}"
-      puts "Info: CLI Utility for running commands on remote machines / downloading & uploading files via SSH/SCP"
+      puts "Info: Admin Utility to keep track of machines"
     end
     map "-v" => 'version'
     map "--version" => 'version'
@@ -85,6 +85,15 @@ module Jbadmin
       puts "===> Running Apple Software Update"
       system "softwareupdate -l"
 
+    end
+
+    desc "ssh [HOST]", "open ssh connection"
+    def ssh(host, port=22)
+      host = Jbadmin::HostController.get_computer host
+
+      puts ''
+      puts "Connecting to #{host[:host]}..."
+      system "ssh #{host[:user]}@#{host[:ip]} -p #{port}"
     end
   end
 end
