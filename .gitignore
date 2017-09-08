@@ -14,6 +14,16 @@ spec/reports
 .env
 *.csv
 *.json
+<<<<<<< HEAD
+tmp/
+log/
+.env
+sheets.rb
+ruby_drive.rb
+.DS_Store
+*.csv
+=======
+>>>>>>> 49c0e574468ebb7740401986f49dbb2e1ae0fe2b
 tmp/
 log/
 .env
@@ -23,3 +33,4 @@ ruby_drive.rb
 *.csv
 tmp/
 log/
+*.rpm

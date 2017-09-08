@@ -12,6 +12,11 @@ class ApplicationController < Sinatra::Base
     set :views, 'app/views'
   end
 
+  get "/" do
+    erb :test
+  end
+
+
   get "/jbadmin" do
     erb :welcome
   end
@@ -27,4 +32,12 @@ class ApplicationController < Sinatra::Base
 
     erb :status
   end
+
+  get "/jbadmin/test/:name" do
+    @test = params[:name]
+
+    erb :test1
+  end
+
+
 end

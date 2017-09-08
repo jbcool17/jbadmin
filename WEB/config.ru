@@ -6,3 +6,4 @@ end
 
 run ApplicationController
 use PrintersController
+use EmailsController

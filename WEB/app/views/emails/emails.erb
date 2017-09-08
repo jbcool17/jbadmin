@@ -1,0 +1,81 @@
+  <div>
+    <h2>Email Parsing Input</h2>
+    <p>Upload a PDF for processing...</p>
+    <p id='processing'>Processing...</p>
+
+    <div class="form-group">
+      <form class='control-form' id='fileUploadForm' action="/jbadmin/emails" method="post" enctype="multipart/form-data">
+        <input class='form-control' id='fileToUpload' type="file" name="pdf" value="">
+      </form>
+      <br>
+
+      <button class='btn btn-primary' type="button" id='btnSubmit' name="button">Submit</button>
+  </div>
+
+  <div id="output">
+    <h2>Emails Output</h2>
+    <span id="result"></span>
+  </div>
+
+</div>
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+  $('#processing').hide();
+  $('#output').hide();
+
+  $('button#btnSubmit').on('click', function(){
+
+    var form = $('form#fileForm')[0];
+    var data = new FormData(form);
+
+    //stop submit the form, we will post it manually.
+        event.preventDefault();
+
+        // Get form
+        var form = $('#fileUploadForm')[0];
+
+		// Create an FormData object
+        var data = new FormData(form);
+
+		// If you want to add an extra field for the FormData
+        data.append("CustomField", "This is some extra data, testing");
+
+		// disabled the submit button
+        $("#btnSubmit").prop("disabled", true);
+        $('form').hide();
+        $('#processing').show();
+        $('')
+        $.ajax({
+            type: "POST",
+            enctype: 'multipart/form-data',
+            url: "/jbadmin/emails",
+            data: data,
+            processData: false,
+            contentType: false,
+            cache: false,
+            timeout: 600000,
+            success: function (data) {
+
+                $("#result").html(data);
+                console.log("SUCCESS : ", data);
+                $("#btnSubmit").prop("disabled", false);
+                $('#output').show();
+                $('#processing').hide();
+                $('form').show();
+
+            },
+            error: function (e) {
+
+                $("#result").text(e.responseText);
+                console.log("ERROR : ", e);
+                $("#btnSubmit").prop("disabled", false);
+
+            }
+        });
+  });
+
+});
+
+</script>

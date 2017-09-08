@@ -23,6 +23,6 @@ module Jbadmin
   end
 
   def self.hosts
-    "#{Jbadmin.main_dir}/.Jbadmin/hosts.csv"
+    "#{Jbadmin.main_dir}/.jbadmin/hosts.csv"
   end
 end
