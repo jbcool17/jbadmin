@@ -1,3 +1,4 @@
 *.rpm
 *.txt
 *.pdf
+deploy.sh

@@ -7,7 +7,7 @@ filename="${filename%.*}"
 
 echo ""
 echo "Converting PDF to TXT..."
-/bin/pdftotext $1
+pdftotext $1
 
 echo "Parsing $filename.txt..."
 grep -E -o "\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,6}\b" "./public/uploads/$filename.txt" > "./public/downloads/EMAILS-$filename.txt"

@@ -3,7 +3,20 @@
 ## Setup
 - Setup Google API & get client_secret.json
 - add sheet ids to .env file
+  ```
+  APP_NAME=Admin
+  PRINTER_SHEET_ID_OLD=xxx
+  PRINTER_SHEET_ID=xxx
+
+  STATUS_CSV_ID=xxx
+  ```
 - format views to display sheets properly
+
+## PDFtoText
+- masOS   : brew cask install pdftotext - [Link](http://macappstore.org/pdftotext/)
+- Centos 7: yum install poppler-utils - [Link](https://www.cyberciti.biz/faq/converter-pdf-files-to-text-format-command/)
+- Debian  : apt-get install poppler-utils - [Link](https://www.cyberciti.biz/faq/converter-pdf-files-to-text-format-command/)
+
 
 ```
 $ bundle install
