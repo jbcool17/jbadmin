@@ -6,11 +6,11 @@
     <tr>
       <th>Location</th>
       <th>Model</th>
+      <th>IP Address</th>
       <th>Toner</th>
       <th>On Hand</th>
       <th>Need</th>
       <th>Installed On</th>
-      <th>IP Address</th>
       <th>Bonjour Name</th>
       <th>WINS Name</th>
     </tr>
@@ -19,11 +19,11 @@
       <tr>
         <td><%= printer[0] %></td>
         <td><%= printer[1] %></td>
-        <td><%= printer[2] %></td>
+        <td><a href="http://<%= printer[2] %>" target="_blank" ><%= printer[2] %></a></td>
         <td><%= printer[3] %></td>
         <td><%= printer[4] %></td>
         <td><%= printer[5] %></td>
-        <td><a href="http://<%= printer[6] %>" target="_blank" ><%= printer[6] %></a></td>
+        <td><%= printer[6] %></td>
         <td><%= printer[7] %></td>
         <td><%= printer[8] %></td>
       </tr>
